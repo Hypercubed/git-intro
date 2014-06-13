@@ -40,17 +40,31 @@
 
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
-				<section>
-					<h1>Intro to Git</h1>
-					<p>
-						<small>by Jayson Harshbarger</small>
-					</p>
+				<section data-markdown>
+					# Intro to Git</h1>
+					#### Jayson Harshbarger
+
+					Note:
+					So, I goint to try something different today.  Instead of showing my work (which at this moment is preliminarily Jordan's connectome visualization, which you have seen a dozen times), I going to introduce you to a tool I use everyday.  A tool improves my quality of life.
 				</section>
 
 				<section>
 					<section data-markdown>
 						# Why version control</h2>
-						![why](http://karthik.github.io/git_intro/img/vcs_for_science.png)
+						
+						```
+						> ll
+
+						mywork
+						mywork_old
+						mywork_Feb
+						mywork_Feb_2014
+						mywork_Feb_2014_new
+						mywork_Feb_2014_new_new
+						```
+
+						Note:
+						I think everyone pretty much knows the reason behind version control.
 					</section>
 
 					<section data-markdown>
@@ -63,25 +77,49 @@
 						- recovery from errors
 						- collaboration
 
-						> "If you're doing any kind of scientific computing and not using version control, you're doing it wrong." - Stephen Turner, Bioinformatics Core at the University of Virginia. <!-- .element: class="fragment" data-fragment-index="1" --> 
+						<p/>
+
+						"If you're doing any kind of scientific computing and not using version control, you're doing it wrong." - Stephen Turner, Bioinformatics Core at the University of Virginia.<!-- .element: class="fragment" data-fragment-index="1" --> 
+
+					</script>
+					</section>
+				</section>
+
+				<section>
+					<section data-markdown>
+						# Why git?
+					</section>
+
+					<section data-markdown>
+					<script type="text/template">
+						## Why not git?
+
+						- "Git is too hard"<!-- .element: class="fragment" data-fragment-index="1" -->
+
+						- "I already use CVS/SVN"<!-- .element: class="fragment" data-fragment-index="2" -->
+
+						- "I don't share"<!-- .element: class="fragment" data-fragment-index="3" -->
+
+						Note:
+						These are a few things I''ve heard when I mention GIT.  My goal here is not to get you to use git... rtaher I want to address these three points.  I don''t think git is hard, it has a somewhat steep learning curve but definatly not as hard as say... XXX amd facebook.  If you use another version control system and you are happy, keep at it.  I want to show that git is different, not necessaryly better.  Finally, git is for you.  On your pc or workstation.  It''&s not about shareing or collaboratting.  While it has some features that help in this matter git the commanline tool is a too to hlp you in your local workflow.
 					</script>
 					</section>
 
 					<section data-markdown>
-						## Why not git?
+					<script type="text/template">
+						## What is GIT?
 
-						> "Git is too hard"
+						- GIT is a command line tool, not a GUI<!-- .element: class="fragment" data-fragment-index="1" -->
+						- GIT != GitHub<!-- .element: class="fragment" data-fragment-index="2" -->
 
-						> "I already use CVS/SVN"
-
-						> "I don't need to share"
-					</section>
+					</script>
+					</section>			
 
 					<section data-markdown><script type="text/template">
 						## Why git?
 						
 						- free and open source
-						- distributed
+						- distributed, work locally
 						- command line
 						- fast and lean
 						- easy <!-- .element: class="fragment" data-fragment-index="1" --> 
@@ -91,28 +129,27 @@
 					<section data-markdown>
 						## Git vs. X
 						- Not better, different
-						- No server required, Offline
+						- No server required, Off-line
 						- Tracks content not files
 						- Branches are lightweight
-					</section>					
+					</section>				
 
-				</section>
-
-				<section>
-					<section data-markdown>
-						# What is GIT?
-					</section>
 				</section>
 
 				<section>
 					<section>
 						<h1>Git workflow</h1>
-						<ol>
+						<ol start="0">
+						<li class="fragment" data-fragment-index="2" >(git init)
 						<li>Edit files
 						<li>Review changes <span class="fragment" data-fragment-index="1">(git status)</span>
 						<li>Stage changes <span class="fragment" data-fragment-index="1">(git add)</span>
 						<li>Commit changes <span class="fragment" data-fragment-index="1">(git commit)</span>
 						</ol>
+
+						<aside class="notes">
+							This is a basic git workflow.  After making changes to files, your review those changes, stage changes, and commit. These map to the trhee fundamental git commands that we'll discuss today.  Plus one more. 
+						</aside>
 					</section>
 				</section>
 
@@ -137,6 +174,9 @@
 					scripts/
 					```
 
+					Note:
+					git init a new empty repository in the current folder.  If you see here I'm c-d-ed into an exsiting project.  Git init creates a single hidden `.git` directory.  My existing files are not touched at all.
+
 				</section>
 
 				<section>
@@ -159,6 +199,9 @@
 						#       scripts/
 						nothing added to commit but untracked files present (use "git add" to track)
 						```
+
+						Note:
+						git status shows a status for teh current git repository.  You can see that I have one file and two fodlers in this directory that are not currently tracked.
 					</section>
 					<section data-markdown>
 						#### (2. Review changes)
@@ -175,6 +218,9 @@
 						-test
 						+testing
 						```
+
+						Note:
+						git diff is not one of teh core commands I menetion but it helpfull for seeing exatly what changes were made.
 					</section>
 				</section>
 
@@ -205,54 +251,68 @@
 					#
 					#       data/
 					```
+
+					Note:
+					`git add` tells git that you want to include teh current version of a file in the next commit. It doesn't alter the file at all.  Later when you make a change to a file you run `git add` again to say you want thoese changes.  Notice that I didn't add my data/ folder.  You don't need to add everything.
 				</section>
 
-				<section data-markdown>
-					<script type="text/template">
+				<section>
+					<section data-markdown>
+						<script type="text/template">
+							#### (4. Commit changes)
+							# git commit
+							### Save the state of a single or collection of changes.
+
+							```
+							> git commit -m "First commit"
+							[master (root-commit) 5053e8c] First commit
+							 0 files changed, 0 insertions(+), 0 deletions(-)
+							 create mode 100644 mydoc.txt
+							 create mode 100644 scripts/myscript.sh
+
+							> ll -a
+
+							.git/
+							data/
+							mydoc.txt
+							scripts/
+							```
+
+							- Shortcut: <!-- .element: class="fragment" data-fragment-index="1" -->`git commit -am "Second"` 
+
+							Note:
+							git commit takes all the changes you staged in step three (3) and commits them to the git repository.  It still doesn''t alter the file; it simply places a copy of it in the .git directory.
+
+							Here is a shortcut that adds all the currently tracked files and commits.
+						</script>
+					</section>
+
+					<section data-markdown>
 						#### (4. Commit changes)
-						# git commit
-						### Save the state of a single or collection of changes.
-
+						# git log
+						#### a journal of changes
 						```
-						> git commit -m "First commit"
-						[master (root-commit) 5053e8c] First commit
-						 0 files changed, 0 insertions(+), 0 deletions(-)
-						 create mode 100644 mydoc.txt
-						 create mode 100644 scripts/myscript.sh
+						> git log
+						commit 8e2bf4a56ed63c8921ccffa751f6c1783f4b542e
+						Author: J. Harshbarger <hypercubed@gmail.com>
+						Date:   Tue Jun 10 14:32:48 2014 +0900
 
-						> ll -a
+						    Second
 
-						.git/
-						data/
-						mydoc.txt
-						scripts/
+						commit 5053e8cbed15e7e2323fcb15b022847db9863526
+						Author: J. Harshbarger <hypercubed@gmail.com>
+						Date:   Tue Jun 10 14:25:55 2014 +0900
+
+						    First commit
 						```
 
-						- Shortcut: <!-- .element: class="fragment" data-fragment-index="1" -->`git commit -am "Second"` 
-					</script>
+						Note:
+						Another usefull command not in teh core coomands is git log.
+					</section>				
 				</section>
 
 				<section data-markdown>
 					# That's the basics
-				</section>
-
-				<section data-markdown>
-					# git log
-					#### a journal of changes
-					```
-					> git log
-					commit 8e2bf4a56ed63c8921ccffa751f6c1783f4b542e
-					Author: J. Harshbarger <hypercubed@gmail.com>
-					Date:   Tue Jun 10 14:32:48 2014 +0900
-
-					    Second
-
-					commit 5053e8cbed15e7e2323fcb15b022847db9863526
-					Author: J. Harshbarger <hypercubed@gmail.com>
-					Date:   Tue Jun 10 14:25:55 2014 +0900
-
-					    First commit
-					```
 				</section>
 
 				<section>
@@ -271,6 +331,9 @@
 						```
 
 						- Shortcut: <!-- .element: class="fragment" data-fragment-index="1" --> `git checkout -b test`
+
+						Note:
+						Some what more advanced and semi-optional is branching.  I say semi because if you are not using branching your missing out on one of the best features.  git branch creates a new branch while git checkout switches to that branch.  In this chase since the new branch is exactly the same as the previous running git checkout deosnt''t change your files.  You have to remember to do both or use the shortcut.
 					</script>
 					</section>
 
@@ -290,6 +353,9 @@
 						 scripts/myscript.sh |    1 +
 						 2 files changed, 2 insertions(+), 0 deletions(-)
 						```
+
+						Note:
+						After I've create a new branch, switches to it and commited changes (remember git add and git commit?) I can switch back to another branch and merge changes.  When you do the git checkout the files in your file system will change from they way they were in one branch to teh other.  Not git is making changes to your files!
 					</section>
 
 				</section>	
@@ -299,7 +365,7 @@
 					#### GIT remotes are remote locations where you can mirror changes
 
 					- Online (GitHub/Bitbucket)
-					- Another directory on your machine
+					- Another machine in your network
 					- Over ssh
 
 					```
@@ -317,6 +383,9 @@
 					To //osc-fs/jayson/repos/example.git
 					 * [new branch]      master -> master
 					```
+
+					Note:
+					git remotes is how you can share or backup your repo to another location.  You can push your code to github or bitbucket for example or to another machine.... even over ssh.  You see here I've created a new git repository (in this case it is a special bare repository) on osc-fs.  I then added this location to my local repository calling it origin.
 				</section>
 
 				<section data-markdown>

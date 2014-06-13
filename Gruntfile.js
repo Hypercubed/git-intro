@@ -115,19 +115,25 @@ module.exports = function(grunt) {
             html: {
                 files: [ 'index.html']
             }
-		}
+		},
+
+	    rsync: {
+	      options: {
+	        args: ['--verbose','--delete'],
+	        exclude: ['.git*','*.scss','node_modules','test','plugin','lib'],
+	        recursive: true,
+	      },
+	      dist: {
+	        options: {
+	          src: './',
+	          dest: '/cygdrive/w/home/harshbarger/git-intro'
+	        }
+	      }
+	    }
 
 	});
 
-	// Dependencies
-	grunt.loadNpmTasks( 'grunt-contrib-qunit' );
-	grunt.loadNpmTasks( 'grunt-contrib-jshint' );
-	grunt.loadNpmTasks( 'grunt-contrib-cssmin' );
-	grunt.loadNpmTasks( 'grunt-contrib-uglify' );
-	grunt.loadNpmTasks( 'grunt-contrib-watch' );
-	grunt.loadNpmTasks( 'grunt-contrib-sass' );
-	grunt.loadNpmTasks( 'grunt-contrib-connect' );
-	grunt.loadNpmTasks( 'grunt-zip' );
+	require('load-grunt-tasks')(grunt);
 
 	// Default task
 	grunt.registerTask( 'default', [ 'jshint', 'cssmin', 'uglify', 'qunit' ] );
