@@ -45,7 +45,7 @@
 					#### Jayson Harshbarger
 
 					Note:
-					So, I goint to try something different today.  Instead of showing my work (which at this moment is preliminarily Jordan's connectome visualization, which you have seen a dozen times), I going to introduce you to a tool I use everyday.  A tool improves my quality of life.
+					I'm going to try something different today.  Instead of showing my work (which at this moment is preliminarily Jordan's connectome visualization, which you have seen a dozen times), I'm going to introduce you to a tool I use everyday.  A tool improves my quality of life.
 				</section>
 
 				<section>
@@ -64,7 +64,7 @@
 						```
 
 						Note:
-						I think everyone pretty much knows the reason behind version control.
+						I think everyone pretty much knows the reason behind version control.  This is version control... maybe not a very good one.
 					</section>
 
 					<section data-markdown>
@@ -101,16 +101,17 @@
 						- "I don't share"<!-- .element: class="fragment" data-fragment-index="3" -->
 
 						Note:
-						These are a few things I''ve heard when I mention GIT.  My goal here is not to get you to use git... rtaher I want to address these three points.  I don''t think git is hard, it has a somewhat steep learning curve but definatly not as hard as say... XXX amd facebook.  If you use another version control system and you are happy, keep at it.  I want to show that git is different, not necessaryly better.  Finally, git is for you.  On your pc or workstation.  It''&s not about shareing or collaboratting.  While it has some features that help in this matter git the commanline tool is a too to hlp you in your local workflow.
+						These are a few things I''ve heard when I''ve mention GIT.  My goal here is not to get you to use git... rather I want to address these three points.  (space) I don''t think git is hard, it has a somewhat steep learning curve but definatly not as hard as say... facebook.  (space) If you use another version control system and you are happy, keep at it.  I want to show that git is different, not necessaryly better.  (space) Finally, git is for you.  On your pc or workstation.  It''s not about shareing or collaborating.  While it has some features that help in this matter git, the commandline tool, is a too to help you in your local workflow.
 					</script>
 					</section>
 
 					<section data-markdown>
 					<script type="text/template">
-						## What is GIT?
+						## What GIT not.
 
-						- GIT is a command line tool, not a GUI<!-- .element: class="fragment" data-fragment-index="1" -->
+						- GIT not a GUI, it is a command line tool<!-- .element: class="fragment" data-fragment-index="1" -->
 						- GIT != GitHub<!-- .element: class="fragment" data-fragment-index="2" -->
+						- GIT is not an version control server<!-- .element: class="fragment" data-fragment-index="3" -->
 
 					</script>
 					</section>			
@@ -127,12 +128,12 @@
 					</script></section>
 
 					<section data-markdown>
-						## Git vs. X
+						## Git vs. Whatever
 						- Not better, different
 						- No server required, Off-line
 						- Tracks content not files
 						- Branches are lightweight
-					</section>				
+					</section>
 
 				</section>
 
@@ -148,7 +149,7 @@
 						</ol>
 
 						<aside class="notes">
-							This is a basic git workflow.  After making changes to files, your review those changes, stage changes, and commit. These map to the trhee fundamental git commands that we'll discuss today.  Plus one more. 
+							This is a basic git workflow.  After making changes to files, you review those changes, stage changes, and commit. (space) These map to the three fundamental git commands that we'll discuss today.  Plus one more. 
 						</aside>
 					</section>
 				</section>
@@ -220,7 +221,7 @@
 						```
 
 						Note:
-						git diff is not one of teh core commands I menetion but it helpfull for seeing exatly what changes were made.
+						git diff is not one of the core commands I mentioned but it helpful for seeing exactly what changes were made.
 					</section>
 				</section>
 
@@ -253,7 +254,7 @@
 					```
 
 					Note:
-					`git add` tells git that you want to include teh current version of a file in the next commit. It doesn't alter the file at all.  Later when you make a change to a file you run `git add` again to say you want thoese changes.  Notice that I didn't add my data/ folder.  You don't need to add everything.
+					`git add` tells git that you want to include the current version of a file in the next commit. It doesn't alter the file at all.  Later when you make a change to a file you run `git add` again to say you want those changes.  Notice that I didn't add my data/ folder.  You don't need to add everything.
 				</section>
 
 				<section>
@@ -281,9 +282,9 @@
 							- Shortcut: <!-- .element: class="fragment" data-fragment-index="1" -->`git commit -am "Second"` 
 
 							Note:
-							git commit takes all the changes you staged in step three (3) and commits them to the git repository.  It still doesn''t alter the file; it simply places a copy of it in the .git directory.
+							git commit takes all the changes you staged in step three (3) and commits them to the git repository.  It still doesn`t alter the file; it simply places a copy of it in the .git directory.
 
-							Here is a shortcut that adds all the currently tracked files and commits.
+							(scace) Here is a shortcut that adds all the currently tracked files and commits, combining step 3 and 4.
 						</script>
 					</section>
 
@@ -307,12 +308,14 @@
 						```
 
 						Note:
-						Another usefull command not in teh core coomands is git log.
+						Another useful command not in the core commands is git log.
 					</section>				
 				</section>
 
 				<section data-markdown>
 					# That's the basics
+
+					Notes: And that is all you really need to get started using git on your local machine.
 				</section>
 
 				<section>
@@ -333,7 +336,7 @@
 						- Shortcut: <!-- .element: class="fragment" data-fragment-index="1" --> `git checkout -b test`
 
 						Note:
-						Some what more advanced and semi-optional is branching.  I say semi because if you are not using branching your missing out on one of the best features.  git branch creates a new branch while git checkout switches to that branch.  In this chase since the new branch is exactly the same as the previous running git checkout deosnt''t change your files.  You have to remember to do both or use the shortcut.
+						Somewhat more advanced is branching.  If you are not using branching your missing out on one of the best features.  `git branch` creates a new branch while git checkout switches to that branch.  In this chase since the new branch is exactly the same as the previous running git checkout deosnt`t change your files.  You have to remember to do both or use the shortcut. (space)
 					</script>
 					</section>
 
@@ -355,7 +358,7 @@
 						```
 
 						Note:
-						After I've create a new branch, switches to it and commited changes (remember git add and git commit?) I can switch back to another branch and merge changes.  When you do the git checkout the files in your file system will change from they way they were in one branch to teh other.  Not git is making changes to your files!
+						After I've create a new branch, switches to it and committed changes (remember git add and git commit?) I can switch back to another branch and merge changes.  When you do the `git checkout` the files in your file system will change from they way they were in one branch to the other.  Now git is making changes to your files!
 					</section>
 
 				</section>	
@@ -372,8 +375,8 @@
 					> git init --bare //osc-fs/jayson/repos/example.git
 					Initialized empty Git repository in //osc-fs/jayson/repos/example.git/
 
-					> git remote add origin //osc-fs/jayson/repos/example.git
-					> git push origin master
+					> git remote add oscfs //osc-fs/jayson/repos/example.git
+					> git push oscfs master
 					Counting objects: 8, done.
 					Delta compression using up to 4 threads.
 					Compressing objects: 100% (4/4), done.
@@ -385,7 +388,7 @@
 					```
 
 					Note:
-					git remotes is how you can share or backup your repo to another location.  You can push your code to github or bitbucket for example or to another machine.... even over ssh.  You see here I've created a new git repository (in this case it is a special bare repository) on osc-fs.  I then added this location to my local repository calling it origin.
+					`git remote` is how you can share or backup your repo to another location.  You can push your code to github or bitbucket for example or to another machine.... even over ssh.  You see here I've created a new git repository (in this case it is a special bare repository) on osc-fs.  I then added this location to my local repository calling it oscfs.  Then I can easily copy branches from my local machine to osc-fs.
 				</section>
 
 				<section data-markdown>
