@@ -43,9 +43,6 @@
 				<section data-markdown>
 					# Intro to Git</h1>
 					#### Jayson Harshbarger
-
-					Note:
-					I'm going to try something different today.  Instead of showing my work (which at this moment is preliminarily Jordan's connectome visualization, which you have seen a dozen times), I'm going to introduce you to a tool I use everyday.  A tool improves my quality of life.
 				</section>
 
 				<section>
@@ -62,9 +59,6 @@
 						mywork_Feb_2014_new
 						mywork_Feb_2014_new_new
 						```
-
-						Note:
-						I think everyone pretty much knows the reason behind version control.  This is version control... maybe not a very good one.
 					</section>
 
 					<section data-markdown>
@@ -100,8 +94,6 @@
 
 						- "I don't share"<!-- .element: class="fragment" data-fragment-index="3" -->
 
-						Note:
-						These are a few things I''ve heard when I''ve mention GIT.  My goal here is not to get you to use git... rather I want to address these three points.  (space) I don''t think git is hard, it has a somewhat steep learning curve but definatly not as hard as say... facebook.  (space) If you use another version control system and you are happy, keep at it.  I want to show that git is different, not necessaryly better.  (space) Finally, git is for you.  On your pc or workstation.  It''s not about shareing or collaborating.  While it has some features that help in this matter git, the commandline tool, is a too to help you in your local workflow.
 					</script>
 					</section>
 
@@ -148,9 +140,6 @@
 						<li>Commit changes <span class="fragment" data-fragment-index="1">(git commit)</span>
 						</ol>
 
-						<aside class="notes">
-							This is a basic git workflow.  After making changes to files, you review those changes, stage changes, and commit. (space) These map to the three fundamental git commands that we'll discuss today.  Plus one more. 
-						</aside>
 					</section>
 				</section>
 
@@ -175,9 +164,6 @@
 					scripts/
 					```
 
-					Note:
-					git init a new empty repository in the current folder.  If you see here I'm c-d-ed into an exsiting project.  Git init creates a single hidden `.git` directory.  My existing files are not touched at all.
-
 				</section>
 
 				<section>
@@ -201,8 +187,6 @@
 						nothing added to commit but untracked files present (use "git add" to track)
 						```
 
-						Note:
-						git status shows a status for teh current git repository.  You can see that I have one file and two fodlers in this directory that are not currently tracked.
 					</section>
 					<section data-markdown>
 						#### (2. Review changes)
@@ -220,8 +204,6 @@
 						+testing
 						```
 
-						Note:
-						git diff is not one of the core commands I mentioned but it helpful for seeing exactly what changes were made.
 					</section>
 				</section>
 
@@ -253,8 +235,6 @@
 					#       data/
 					```
 
-					Note:
-					`git add` tells git that you want to include the current version of a file in the next commit. It doesn't alter the file at all.  Later when you make a change to a file you run `git add` again to say you want those changes.  Notice that I didn't add my data/ folder.  You don't need to add everything.
 				</section>
 
 				<section>
@@ -281,10 +261,6 @@
 
 							- Shortcut: <!-- .element: class="fragment" data-fragment-index="1" -->`git commit -am "Second"` 
 
-							Note:
-							git commit takes all the changes you staged in step three (3) and commits them to the git repository.  It still doesn`t alter the file; it simply places a copy of it in the .git directory.
-
-							(scace) Here is a shortcut that adds all the currently tracked files and commits, combining step 3 and 4.
 						</script>
 					</section>
 
@@ -307,16 +283,11 @@
 						    First commit
 						```
 
-						Note:
-						Another useful command not in the core commands is git log.
 					</section>				
 				</section>
 
 				<section data-markdown>
 					# That's the basics
-
-					Note:
-					And that is all you really need to get started using git on your local machine.
 				</section>
 
 				<section>
@@ -336,8 +307,6 @@
 
 						- Shortcut: <!-- .element: class="fragment" data-fragment-index="1" --> `git checkout -b test`
 
-						Note:
-						Somewhat more advanced is branching.  If you are not using branching your missing out on one of the best features.  `git branch` creates a new branch while git checkout switches to that branch.  In this chase since the new branch is exactly the same as the previous running git checkout deosnt`t change your files.  You have to remember to do both or use the shortcut. (space)
 					</script>
 					</section>
 
@@ -358,8 +327,6 @@
 						 2 files changed, 2 insertions(+), 0 deletions(-)
 						```
 
-						Note:
-						After I've create a new branch, switches to it and committed changes (remember git add and git commit?) I can switch back to another branch and merge changes.  When you do the `git checkout` the files in your file system will change from they way they were in one branch to the other.  Now git is making changes to your files!
 					</section>
 
 				</section>	
@@ -388,8 +355,6 @@
 					 * [new branch]      master -> master
 					```
 
-					Note:
-					`git remote` is how you can share or backup your repo to another location.  You can push your code to github or bitbucket for example or to another machine.... even over ssh.  You see here I've created a new git repository (in this case it is a special bare repository) on osc-fs.  I then added this location to my local repository calling it oscfs.  Then I can easily copy branches from my local machine to osc-fs.
 				</section>
 
 				<section data-markdown>
