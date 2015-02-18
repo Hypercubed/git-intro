@@ -19,11 +19,11 @@ module.exports = function(grunt) {
 		zip: {
 			'reveal-js-presentation.zip': [
 				'index.html',
-				'css/**',
-				'js/**',
-				'lib/**',
-				'images/**',
-				'plugin/**'
+				'bower_components/reveal.js/css/**',
+				'bower_components/reveal.js/js/**',
+				'bower_components/reveal.js/lib/**',
+				'bower_components/reveal.js/images/**',
+				'bower_components/reveal.js/plugin/**'
 			]
 		},
 
@@ -31,10 +31,6 @@ module.exports = function(grunt) {
             options: {
                 livereload: true
             },
-			main: {
-				files: [ 'Gruntfile.js' ],
-				tasks: 'default'
-			},
             html: {
                 files: [ 'index.html']
             }
@@ -43,7 +39,7 @@ module.exports = function(grunt) {
 	    rsync: {
 	      options: {
 	        args: ['--verbose','--delete'],
-	        exclude: ['.git*','*.scss','node_modules','test','plugin','lib'],
+	        exclude: ['.git*','*.scss','node_modules','test'],
 	        recursive: true,
 	      },
 	      dist: {
@@ -66,5 +62,5 @@ module.exports = function(grunt) {
 
 	// Serve presentation locally
 	grunt.registerTask( 'serve', [ 'connect', 'watch' ] );
-	
+
 };
