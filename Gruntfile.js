@@ -10,8 +10,8 @@ module.exports = function(grunt) {
 				options: {
 					port: port,
 					base: '.',
-                    livereload: true,
-                    open: true
+          livereload: true,
+          open: true
 				}
 			}
 		},
@@ -28,27 +28,34 @@ module.exports = function(grunt) {
 		},
 
 		watch: {
-            options: {
-                livereload: true
-            },
-            html: {
-                files: [ 'index.html']
-            }
+      options: {
+        livereload: true
+      },
+      html: {
+        files: [ 'index.html']
+      }
 		},
 
-	    rsync: {
-	      options: {
-	        args: ['--verbose','--delete'],
-	        exclude: ['.git*','*.scss','node_modules','test'],
-	        recursive: true,
-	      },
-	      dist: {
-	        options: {
-	          src: './',
-	          dest: '/cygdrive/w/home/harshbarger/git-intro'
-	        }
-	      }
-	    }
+    rsync: {
+      options: {
+        args: ['--verbose','--delete'],
+        exclude: ['.git*','*.scss','node_modules','test'],
+        recursive: true,
+      },
+      dist: {
+        options: {
+          src: './',
+          dest: '/cygdrive/w/home/harshbarger/git-intro'
+        }
+      }
+    },
+
+		'gh-pages': {
+			options: {
+				base: '.'
+			},
+			src: ['index.html','bower_components/**']
+		}
 
 	});
 
